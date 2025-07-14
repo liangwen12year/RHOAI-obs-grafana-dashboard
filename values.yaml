@@ -1,0 +1,24 @@
+# Labels to add to all resources
+commonLabels: {}
+
+# Annotations to add to all resources
+commonAnnotations: {}
+
+# Folder name in Grafana where the dashboards will be placed
+grafanaFolder: "Openshift AI Observability"
+
+# Dashboard namespace (used for dashboard identification)
+dashboardNamespace: "default"
+
+# Plugins required by the dashboards
+# Example:
+# plugins:
+#   - name: "grafana-piechart-panel"
+#     version: "1.6.4"
+plugins: []
+
+# Grafana instance selector
+# Defines which Grafana instance should be used for these dashboards
+instanceSelector:
+  matchLabels:
+    app: grafana
