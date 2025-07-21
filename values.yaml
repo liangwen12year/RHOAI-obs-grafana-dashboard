@@ -22,3 +22,7 @@ plugins: []
 instanceSelector:
   matchLabels:
     app: grafana
+
+dashboard_folders:
+  - llm-d
+  - vllm  

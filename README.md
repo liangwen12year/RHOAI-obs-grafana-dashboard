@@ -40,15 +40,16 @@ This Helm chart deploys Grafana dashboards as Kubernetes custom resources using 
 
 The following table lists the configurable parameters of the Grafana Dashboards chart and their default values.
 
-|      Parameter       |                        Description                         |   Default    |
-| :------------------: | :--------------------------------------------------------: | :----------: |
-|     `namespace`      |       Namespace where the dashboards will be created       | `monitoring` |
-|    `commonLabels`    |               Labels to add to all resources               |     `{}`     |
-| `commonAnnotations`  |            Annotations to add to all resources             |     `{}`     |
-|   `grafanaFolder`    | Folder name in Grafana where the dashboards will be placed |  `General`   |
-| `dashboardNamespace` |  Dashboard namespace (used for dashboard identification)   |  `default`   |
-| `plugins` | List of Grafana plugins required by the dashboards | `[]` |
-| `instanceSelector` | Selector for the Grafana instance where dashboards should be deployed | `{matchLabels: {app: grafana}}` |
+|      Parameter       |                              Description                              |             Default             |
+| :------------------: | :-------------------------------------------------------------------: | :-----------------------------: |
+|     `namespace`      |            Namespace where the dashboards will be created             |          `monitoring`           |
+|    `commonLabels`    |                    Labels to add to all resources                     |              `{}`               |
+| `commonAnnotations`  |                  Annotations to add to all resources                  |              `{}`               |
+|   `grafanaFolder`    |      Folder name in Grafana where the dashboards will be placed       |            `General`            |
+| `dashboard_folders`  |           List of folders inside of `dashboards` to deploy            |              `[]`               |
+| `dashboardNamespace` |        Dashboard namespace (used for dashboard identification)        |            `default`            |
+|      `plugins`       |          List of Grafana plugins required by the dashboards           |              `[]`               |
+|  `instanceSelector`  | Selector for the Grafana instance where dashboards should be deployed | `{matchLabels: {app: grafana}}` |
 
 ### Example
 
@@ -73,6 +74,10 @@ instanceSelector:
     # Example with multiple labels:
     # environment: production
     # team: observability
+
+dashboard_folders:
+  - llm-d # For LLM-D dashboards
+  - vllm # For VLLM dashboards
 ```
 
 ## Creating Dashboards
